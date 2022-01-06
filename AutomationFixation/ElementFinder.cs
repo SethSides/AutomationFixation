@@ -9,7 +9,7 @@ namespace AutomationFixation
 {
     public static class ElementFinder
     {
-        public static IWebDriver Driver = Browser.Driver;
+        public static IWebDriver Driver = Browser.Browser.Driver;
 
         public static AutomationFixationElement FindById(string id)
         {

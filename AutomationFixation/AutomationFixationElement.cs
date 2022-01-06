@@ -13,7 +13,7 @@ namespace AutomationFixation
     public class AutomationFixationElement
     {
         public static IWebElement Element;
-        public static IWebDriver Driver = Browser.Driver;
+        public static IWebDriver Driver = Browser.Browser.Driver;
 
         public AutomationFixationElement(IWebElement element)
         {

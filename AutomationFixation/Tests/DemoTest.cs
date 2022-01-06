@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
+﻿using System.Threading;
+using AutomationFixation.PageObjects;
 using NUnit.Framework;
-using OpenQA.Selenium;
 
-namespace AutomationFixation
+namespace AutomationFixation.Tests
 {
     [TestFixture]
     public class DemoTest : BaseTest
@@ -19,7 +13,7 @@ namespace AutomationFixation
 
             TestPageObject.GetLoginCredentials();
             TestPageObject.Login("standard_user", "secret_sauce");
-            Browser.TakeScreenShot("test");
+            Browser.Browser.TakeScreenShot("test");
 
             TestPageObject.GetStuff();
             

@@ -13,16 +13,16 @@ namespace AutomationFixation
         [SetUp]
         public void SetupTest()
         {
-            Browser.StartTest();
+            Browser.Browser.StartTest();
             var url = ConfigurationManager.AppSettings["URL"];
-            Browser.NavigateToUrl(url);
-            Browser.MaximizeWindow();
+            Browser.Browser.NavigateToUrl(url);
+            Browser.Browser.MaximizeWindow();
         }
 
         [TearDown]
         public void TeardownTest()
         {
-            Browser.EndTest();
+            Browser.Browser.EndTest();
         }
     }
 }

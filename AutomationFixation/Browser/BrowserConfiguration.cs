@@ -1,20 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Configuration;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium.DevTools.V85.Animation;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.IE;
 
-namespace AutomationFixation
+namespace AutomationFixation.Browser
 {
     public static class BrowserConfiguration
     {
-        //public int DefaultTimeout = int.Parse(ConfigurationManager.AppSettings["DefaultTimeout"])
+        public static int DefaultTimeout = int.Parse(ConfigurationManager.AppSettings["DefaultTimeout"]);
 
         public static WebDriver CreateDriver(string browserType)
         {
@@ -36,6 +31,7 @@ namespace AutomationFixation
         private static WebDriver ChromeDriver()
         {
             var chromeDriver = new ChromeDriver();
+            chromeDriver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(DefaultTimeout);
             return chromeDriver;
         }
 
