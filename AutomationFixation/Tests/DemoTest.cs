@@ -17,6 +17,7 @@ namespace AutomationFixation
         public void Test1()
         {
 
+            TestPageObject.GetLoginCredentials();
             TestPageObject.Login("standard_user", "secret_sauce");
             Browser.TakeScreenShot("test");
 

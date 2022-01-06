@@ -65,6 +65,16 @@ namespace AutomationFixation
             return Driver.PageSource;
         }
 
+        public static void ChangePageLoadTimeout(int timeInSeconds)
+        {
+            Driver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(timeInSeconds);
+        }
+
+        public static void ResetPageLoadTimeoutToDefault()
+        {
+            Driver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(int.Parse(ConfigurationManager.AppSettings["DefaultTimeout"]));
+        }
+
         public static void TakeScreenShot(string screenShotFileName)
         {
             Screenshot ss = ((ITakesScreenshot)Driver).GetScreenshot();

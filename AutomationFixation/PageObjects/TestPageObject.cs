@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using OpenQA.Selenium;
 using OpenQA.Selenium.DevTools.V85.DOM;
+using OpenQA.Selenium.Support.UI;
 
 namespace AutomationFixation
 {
@@ -22,24 +23,40 @@ namespace AutomationFixation
         //}
 
 
-        public static AutomationFixationElement LoginButton => ElementFinder.FindThisDangId("login-button");
+        public static AutomationFixationElement LoginButton => ElementFinder.FindById("login-button");
 
-        public static AutomationFixationElement UserNameTextBox => ElementFinder.FindThisDangId("user-name");
-        public static AutomationFixationElement PasswordTextBox => ElementFinder.FindThisDangId("password");
+        public static AutomationFixationElement UserNameTextBox => ElementFinder.FindById("user-name");
+        public static AutomationFixationElement PasswordTextBox => ElementFinder.FindById("password");
 
-        public static AutomationFixationElement Testing => ElementFinder.FindThisDangId("login-button");
+        public static AutomationFixationElement Testing => ElementFinder.FindById("login-button");
 
-        public static string GetStuff()
+        public static AutomationFixationElement LoginCredentials => ElementFinder.FindById("login_credentials");
+
+        //public static string GetStuff()
+        //{
+        //    Browser.GetCurrentUrl();
+        //    Browser.GetPageTitle();
+        //    Browser.GetCurrentPageHtmlSource();
+        //    return "This";
+        //}
+
+        public static void GetStuff()
         {
-            Browser.GetCurrentUrl();
-            Browser.GetPageTitle();
-            Browser.GetCurrentPageHtmlSource();
-            return "This";
+            UserNameTextBox.Type("test");
+            PasswordTextBox.Type("test");
+            LoginButton.Click();
         }
 
         public static void Move()
         {
             //AutomationFixationElement.DragAndDrop(LoginButton, (IWebElement)UserNameTextBox);
+        }
+
+        public static void GetLoginCredentials()
+        {
+            LoginCredentials.GetText();
+            //WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(1));
+            //wait.Until(LoginCredentials.IsDisplayed());
         }
         
 
