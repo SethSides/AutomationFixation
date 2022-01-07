@@ -1,5 +1,6 @@
 ﻿using System.Threading;
 using AutomationFixation.PageObjects;
+using AutomationFixation.Utilities;
 using NUnit.Framework;
 
 namespace AutomationFixation.Tests
@@ -10,10 +11,17 @@ namespace AutomationFixation.Tests
         [Test]
         public void Test1()
         {
+            //KeyboardUtilities.CtrlAltDelete();
+            //TestPageObject.GetLoginCredentials();
+            //TestPageObject.Login("standard_user", "secret_sauce");
+           // Browser.Browser.TakeScreenShot("test");
 
-            TestPageObject.GetLoginCredentials();
-            TestPageObject.Login("standard_user", "secret_sauce");
-            Browser.Browser.TakeScreenShot("test");
+           TestPageObject.UserNameTextBox.Type("Copy and Paste Test");
+           //Thread.Sleep(1500);
+           TestPageObject.UserNameTextBox.Click();
+           //Thread.Sleep(1500);
+           KeyboardUtilities.CtrlAltDelete();
+           Thread.Sleep(1500);
 
             TestPageObject.GetStuff();
             
